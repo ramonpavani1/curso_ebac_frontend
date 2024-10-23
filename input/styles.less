@@ -1,0 +1,74 @@
+// styles.less
+
+@base-color: #4CAF50;
+@text-color: #333;
+@font-stack: "Helvetica Neue", Arial, sans-serif;
+
+// Definição da variável header-height
+@header-height: 60px; // Certifique-se de que esta linha está aqui
+
+// Mixins
+.rounded-corners(@radius) {
+  border-radius: @radius;
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+}
+
+// Estilos Globais
+body {
+  font-family: @font-stack;
+  color: @text-color;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: @base-color;
+  height: @header-height; // Uso da variável aqui
+  .rounded-corners(10px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+
+  h1 {
+    color: white;
+    font-size: 1.5em;
+  }
+}
+
+// Estilos de Botões
+.button {
+  background-color: @base-color;
+  color: white;
+  padding: 10px 15px;
+  text-decoration: none;
+  display: inline-block;
+  margin: 10px 0;
+  .rounded-corners(5px);
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: darken(@base-color, 10%);
+  }
+}
+
+// Estilos para as Seções
+.section {
+  padding: 20px;
+  margin: 10px;
+  background-color: lighten(@base-color, 40%);
+  .rounded-corners(5px);
+}
+
+// Responsividade
+@media (max-width: 600px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .button {
+    width: 100%;
+  }
+}
